@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Packaging Products | Your packaging. Our trucks.</title>
+<meta name="description" content="Concept demo. United Packaging Products: 25 years supplying Chicago's supermarkets, delis, bakeries and restaurants, delivered on a truck fleet we own.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131210'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial' font-size='30' font-weight='700' fill='%23d9f154' text-anchor='middle'%3EU%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --black:#131210;
+    --black-2:#0e0d0c;
+    --cream:#f4eee6;
+    --cream-dim:#bdb4a7;
+    --blush:#f2dcd3;
+    --blush-deep:#e8c9bd;
+    --ink:#1c1714;
+    --ink-soft:#5d5249;
+    --green:#1e3b2f;
+    --green-deep:#163025;
+    --lime:#d9f154;
+    --lime-ink:#181c08;
+    --radius-pill:999px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+  body{
+    background:var(--black);
+    color:var(--cream);
+    font-family:"Avenir Next","Avenir","Helvetica Neue",-apple-system,"Segoe UI",Arial,sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+  /* ---------- reveal motion ---------- */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+  @media (prefers-reduced-motion: reduce){
+    .rv{opacity:1;transform:none;transition:none}
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed;top:14px;left:50%;transform:translateX(-50%);
+    width:min(1180px,calc(100% - 28px));
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;padding:10px 12px 10px 22px;
+    background:rgba(19,18,16,.55);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(244,238,230,.12);
+    border-radius:var(--radius-pill);
+    z-index:50;
+  }
+  @media (prefers-reduced-transparency: reduce){
+    nav{background:rgba(19,18,16,.95)}
+  }
+  .brand{display:flex;align-items:baseline;gap:9px;font-weight:600;letter-spacing:.01em;font-size:17px;white-space:nowrap}
+  .brand b{font-weight:700}
+  .brand span{font-weight:500;color:var(--cream-dim);font-size:13px}
+  .nav-links{display:flex;gap:26px;font-size:14.5px;font-weight:500}
+  .nav-links a{color:rgba(244,238,230,.85);transition:color .25s}
+  .nav-links a:hover{color:var(--lime)}
+  .btn{
+    display:inline-block;background:var(--lime);color:var(--lime-ink);
+    font-weight:700;font-size:15px;letter-spacing:.01em;
+    padding:12px 24px;border-radius:var(--radius-pill);border:none;cursor:pointer;
+    transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(217,241,84,.22)}
+  .btn:active{transform:scale(.98)}
+  .btn-nav{padding:10px 20px;font-size:14px}
+  @media (max-width:860px){.nav-links{display:none}}
+  @media (max-width:560px){.brand span{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:100dvh;
+    display:flex;align-items:flex-end;
+    background:#2a1407;
+  }
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%}
+  .hero-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,4,.82) 0%,rgba(10,7,4,.25) 34%,rgba(10,7,4,0) 60%)}
+  @media (max-width:700px){
+    .hero-img{object-position:72% 62%}
+    .hero-scrim{background:linear-gradient(to top,rgba(10,7,4,.92) 0%,rgba(10,7,4,.55) 52%,rgba(10,7,4,.08) 80%)}
+  }
+  .hero-inner{position:relative;width:100%;padding-bottom:clamp(48px,8vh,96px)}
+  .hero h1{
+    font-size:clamp(42px,6.2vw,86px);
+    line-height:1.02;letter-spacing:-.025em;font-weight:600;
+    max-width:13ch;
+    text-shadow:0 2px 30px rgba(10,7,4,.55);
+  }
+  .hero p{text-shadow:0 1px 18px rgba(10,7,4,.6)}
+  .hero p{
+    margin-top:20px;max-width:46ch;font-size:clamp(16px,1.4vw,19px);
+    color:rgba(244,238,230,.88);
+  }
+  .hero-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn-ghost{
+    display:inline-block;padding:12px 24px;border-radius:var(--radius-pill);
+    border:1px solid rgba(244,238,230,.45);color:var(--cream);
+    font-weight:600;font-size:15px;transition:border-color .25s,background .25s;
+  }
+  .btn-ghost:hover{border-color:var(--cream);background:rgba(244,238,230,.08)}
+
+  /* ---------- statement panels ---------- */
+  .panel-blush{background:var(--blush);color:var(--ink)}
+  .statement{padding:clamp(110px,16vh,190px) 0;text-align:center}
+  .statement h2{
+    font-size:clamp(34px,4.6vw,64px);line-height:1.08;letter-spacing:-.02em;
+    font-weight:600;max-width:22ch;margin:0 auto;
+  }
+  .statement p{margin:26px auto 0;max-width:52ch;font-size:clamp(16px,1.3vw,19px);color:var(--ink-soft)}
+
+  /* ---------- image band ---------- */
+  .band{line-height:0}
+  .band img{width:100%;height:clamp(280px,52vh,560px);object-fit:cover}
+
+  /* ---------- fleet / wireframe ---------- */
+  .fleet{background:var(--black-2);padding:clamp(90px,14vh,160px) 0}
+  .fleet-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,5vw,90px);align-items:center}
+  .fleet h2{font-size:clamp(32px,3.6vw,52px);line-height:1.06;letter-spacing:-.02em;font-weight:600;max-width:14ch}
+  .fleet p{margin-top:22px;color:var(--cream-dim);max-width:46ch;font-size:clamp(16px,1.25vw,18px)}
+  .fleet .big-fact{margin-top:34px;display:flex;gap:46px}
+  .big-fact div strong{display:block;font-size:clamp(30px,2.8vw,42px);font-weight:600;letter-spacing:-.02em;color:var(--cream)}
+  .big-fact div span{font-size:14.5px;color:var(--cream-dim)}
+  .wire{width:100%;height:auto}
+  @media (max-width:900px){.fleet-grid{grid-template-columns:1fr}.wire{max-width:560px}}
+
+  /* ---------- foam-free green ---------- */
+  .foam{background:var(--green);color:var(--cream);padding:clamp(110px,16vh,200px) 0;text-align:center;position:relative;overflow:hidden}
+  .foam::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:radial-gradient(120% 100% at 50% 130%,rgba(217,241,84,.10),transparent 70%);pointer-events:none}
+  .foam h2{font-size:clamp(46px,7vw,108px);line-height:.98;letter-spacing:-.03em;font-weight:600}
+  .foam .sub{margin:30px auto 0;max-width:62ch;font-size:clamp(16px,1.35vw,19.5px);color:rgba(244,238,230,.85)}
+  .foam .law{margin:36px auto 0;max-width:680px;display:grid;gap:12px;text-align:left}
+  .law-row{
+    display:flex;gap:16px;align-items:baseline;justify-content:space-between;
+    padding:18px 24px;border:1px solid rgba(244,238,230,.18);border-radius:18px;
+    background:rgba(14,13,12,.18);
+  }
+  .law-row strong{font-weight:600;font-size:16.5px}
+  .law-row span{font-size:14.5px;color:rgba(244,238,230,.72);text-align:right}
+  @media (max-width:640px){.law-row{flex-direction:column;gap:6px}.law-row span{text-align:left}}
+
+  /* ---------- swaps split ---------- */
+  .swaps{background:var(--blush);color:var(--ink);padding:clamp(90px,13vh,150px) 0}
+  .swaps-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,90px);align-items:center}
+  .swaps img{width:100%;height:100%;object-fit:cover;border-radius:0;box-shadow:0 30px 80px rgba(28,23,20,.18)}
+  .swaps h2{font-size:clamp(30px,3.4vw,48px);line-height:1.08;letter-spacing:-.02em;font-weight:600;max-width:16ch}
+  .swaps>.wrap>div p.lead{margin-top:20px;color:var(--ink-soft);max-width:44ch}
+  .swap-list{margin-top:30px;display:grid;gap:0}
+  .swap-item{padding:18px 0;border-top:1px solid rgba(28,23,20,.16);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline}
+  .swap-item strong{font-size:17.5px;font-weight:650;white-space:nowrap}
+  .swap-item span{color:var(--ink-soft);font-size:15.5px}
+  @media (max-width:900px){.swaps-grid{grid-template-columns:1fr}}
+
+  /* ---------- brands marquee ---------- */
+  .brands{background:var(--black);padding:clamp(70px,10vh,110px) 0;overflow:hidden}
+  .brands h3{text-align:center;font-weight:500;color:var(--cream-dim);font-size:16px;margin-bottom:46px}
+  .marquee{display:flex;width:max-content;gap:0;animation:slide 36s linear infinite}
+  .marquee-track{display:flex;align-items:center}
+  .mark{padding:0 clamp(28px,4vw,60px);font-size:clamp(26px,3vw,42px);white-space:nowrap;color:var(--cream);opacity:.92}
+  .mk-dart{font-weight:700;letter-spacing:.04em}
+  .mk-fabrikal{font-weight:400;letter-spacing:-.01em;font-style:italic}
+  .mk-ckf{font-weight:700;letter-spacing:.22em}
+  .mk-anchor{font-weight:500;letter-spacing:.06em}
+  .mk-novolex{font-weight:600;letter-spacing:-.02em}
+  .mk-inline{font-weight:300;letter-spacing:.12em}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){
+    .marquee{animation:none;flex-wrap:wrap;width:100%;justify-content:center}
+    .marquee-track:last-child{display:none}
+    .mark{padding:10px 20px;font-size:24px}
+  }
+
+  /* ---------- planks / how ordering works ---------- */
+  .planks{background:var(--black-2);padding:clamp(90px,14vh,170px) 0}
+  .planks h2{font-size:clamp(32px,3.8vw,54px);letter-spacing:-.02em;font-weight:600;line-height:1.06;max-width:14ch}
+  .planks .intro{margin-top:18px;color:var(--cream-dim);max-width:46ch}
+  .plank-row{margin-top:clamp(46px,6vh,80px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,34px)}
+  .plank{position:relative;perspective:900px}
+  .plank-face{
+    background:var(--blush);color:var(--ink);
+    border-radius:14px;
+    padding:30px 26px 26px;
+    min-height:300px;display:flex;flex-direction:column;justify-content:space-between;
+    transform:rotateX(6deg) rotateY(-4deg);
+    transform-origin:bottom center;
+    box-shadow:18px 26px 0 rgba(217,241,84,.10),0 40px 70px rgba(0,0,0,.45);
+    transition:transform .5s cubic-bezier(.16,1,.3,1);
+  }
+  .plank:nth-child(2) .plank-face{transform:rotateX(6deg) rotateY(0deg);background:var(--blush-deep)}
+  .plank:nth-child(3) .plank-face{transform:rotateX(6deg) rotateY(4deg)}
+  .plank:hover .plank-face{transform:rotateX(0) rotateY(0) translateY(-6px)}
+  @media (prefers-reduced-motion: reduce){
+    .plank-face,.plank:nth-child(2) .plank-face,.plank:nth-child(3) .plank-face{transform:none}
+    .plank:hover .plank-face{transform:none}
+  }
+  .plank-num{font-size:clamp(64px,7vw,110px);font-weight:600;line-height:.9;letter-spacing:-.04em;color:var(--ink)}
+  .plank-face h4{font-size:20px;font-weight:650;margin-top:26px}
+  .plank-face p{margin-top:8px;font-size:15px;color:var(--ink-soft)}
+  @media (max-width:860px){.plank-row{grid-template-columns:1fr;max-width:440px}.plank-face{min-height:230px}}
+
+  /* ---------- dock night ---------- */
+  .dock{position:relative;min-height:78vh;display:flex;align-items:center;background:#0a0c12}
+  .dock img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}
+  .dock-scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,9,13,.86) 18%,rgba(8,9,13,.25) 65%,rgba(8,9,13,.1))}
+  .dock-inner{position:relative;padding:clamp(90px,14vh,150px) 0}
+  .dock h2{font-size:clamp(34px,4.2vw,60px);line-height:1.06;letter-spacing:-.02em;font-weight:600;max-width:15ch}
+  .dock p{margin-top:20px;max-width:44ch;color:rgba(244,238,230,.85)}
+
+  /* ---------- giant logotype ---------- */
+  .logotype{background:var(--blush);color:var(--ink);padding:clamp(80px,12vh,140px) 0 clamp(60px,9vh,110px);text-align:center;overflow:hidden}
+  .logotype .giant{
+    font-size:clamp(120px,24vw,360px);
+    font-weight:700;letter-spacing:-.05em;line-height:.85;
+  }
+  .logotype .tagline{margin-top:26px;font-size:clamp(15px,1.3vw,18px);color:var(--ink-soft)}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--black);padding:clamp(100px,15vh,180px) 0}
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,110px)}
+  .contact h2{font-size:clamp(34px,4vw,58px);line-height:1.05;letter-spacing:-.02em;font-weight:600;max-width:13ch}
+  .phone-big{display:inline-block;margin-top:30px;font-size:clamp(30px,3.4vw,48px);font-weight:600;letter-spacing:-.01em;color:var(--lime)}
+  .phone-big:hover{text-decoration:underline;text-underline-offset:6px}
+  .contact-meta{margin-top:34px;display:grid;gap:18px;max-width:380px}
+  .contact-meta div strong{display:block;font-size:14px;font-weight:600;color:var(--cream-dim);margin-bottom:3px}
+  .contact-meta div span{font-size:16.5px}
+  form{display:grid;gap:18px}
+  .field label{display:block;font-size:14px;font-weight:600;color:var(--cream-dim);margin-bottom:7px}
+  .field input,.field textarea{
+    width:100%;background:#1c1b18;border:1px solid rgba(244,238,230,.18);
+    border-radius:14px;padding:14px 16px;color:var(--cream);
+    font:inherit;font-size:16px;
+    transition:border-color .25s;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:#8f877b}
+  .field input:focus,.field textarea:focus{outline:2px solid var(--lime);outline-offset:1px;border-color:transparent}
+  .field textarea{min-height:120px;resize:vertical}
+  .form-note{font-size:14px;color:var(--cream-dim)}
+  .form-sent{display:none;font-size:15px;color:var(--lime);font-weight:600}
+  @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--black-2);border-top:1px solid rgba(244,238,230,.1);padding:46px 0 38px}
+  .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline}
+  .foot-grid .brand{font-size:16px}
+  .foot-grid p{font-size:14px;color:var(--cream-dim);max-width:60ch}
+  .disclaimer{
+    margin-top:30px;padding-top:22px;border-top:1px solid rgba(244,238,230,.1);
+    font-size:13.5px;color:#8f877b;
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <a class="brand" href="#top"><b>United</b> Packaging <span>Bensenville, IL</span></a>
+  <div class="nav-links">
+    <a href="#fleet">Our fleet</a>
+    <a href="#foamfree">Foam-Free Ready</a>
+    <a href="#brands">Brands</a>
+    <a href="#ordering">Ordering</a>
+  </div>
+  <a class="btn btn-nav" href="tel:6308607350">Call 630-860-7350</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <img class="hero-img" src="img/hero-truck.jpg" alt="A semi truck silhouetted against a warm amber sunset" fetchpriority="high">
+  <div class="hero-scrim"></div>
+  <div class="hero-inner wrap">
+    <h1 class="rv">Your packaging. Our trucks.</h1>
+    <p class="rv d1">For 25 years, United Packaging Products has supplied Chicago's supermarkets, delis, bakeries and restaurants, delivered on a fleet we own.</p>
+    <div class="hero-cta rv d2">
+      <a class="btn" href="tel:6308607350">Call 630-860-7350</a>
+      <a class="btn-ghost" href="#foamfree">See Foam-Free Ready</a>
+    </div>
+  </div>
+</header>
+
+<!-- BLUSH STATEMENT -->
+<section class="panel-blush">
+  <div class="statement wrap">
+    <h2 class="rv">Twenty-five years of keeping Chicago's shelves and kitchens stocked.</h2>
+    <p class="rv d1">Film, bags, containers, trays, foil pans, paper and jan-san supplies. One warehouse in Bensenville, one phone call, one delivery at your door.</p>
+  </div>
+</section>
+
+<!-- DAWN IMAGE BAND -->
+<div class="band" aria-hidden="false">
+  <img src="img/dawn-truck.jpg" alt="A delivery box truck on an industrial road at dawn under a pink sky" loading="lazy">
+</div>
+
+<!-- FLEET / WIREFRAME -->
+<section class="fleet" id="fleet">
+  <div class="fleet-grid wrap">
+    <div>
+      <h2 class="rv">The trucks outside are ours.</h2>
+      <p class="rv d1">We do not hand your order to a third-party carrier and hope. Our own trucks and our own drivers run the Chicago metro, which is how a morning order can be on your dock the same day or the next.</p>
+      <div class="big-fact rv d2">
+        <div><strong>25 yrs</strong><span>supplying Chicagoland</span></div>
+        <div><strong>1 fleet</strong><span>owned, not hired</span></div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <svg class="wire" viewBox="0 0 920 360" fill="none" role="img" aria-label="Line drawing of a semi truck">
+        <!-- ground -->
+        <line x1="10" y1="312" x2="910" y2="312" stroke="#f4eee6" stroke-opacity=".25" stroke-width="1.5"/>
+        <!-- trailer front face -->
+        <rect x="70" y="110" width="470" height="150" stroke="#f4eee6" stroke-opacity=".85" stroke-width="1.6"/>
+        <!-- trailer top face -->
+        <path d="M70 110 L120 72 L590 72 L540 110" stroke="#f4eee6" stroke-opacity=".55" stroke-width="1.3"/>
+        <!-- trailer side face -->
+        <path d="M540 110 L590 72 L590 226 L540 260" stroke="#f4eee6" stroke-opacity=".55" stroke-width="1.3"/>
+        <!-- mesh verticals -->
+        <g stroke="#f4eee6" stroke-opacity=".22" stroke-width="1">
+          <line x1="117" y1="110" x2="117" y2="260"/><line x1="164" y1="110" x2="164" y2="260"/>
+          <line x1="211" y1="110" x2="211" y2="260"/><line x1="258" y1="110" x2="258" y2="260"/>
+          <line x1="305" y1="110" x2="305" y2="260"/><line x1="352" y1="110" x2="352" y2="260"/>
+          <line x1="399" y1="110" x2="399" y2="260"/><line x1="446" y1="110" x2="446" y2="260"/>
+          <line x1="493" y1="110" x2="493" y2="260"/>
+        </g>
+        <!-- mesh horizontals -->
+        <g stroke="#f4eee6" stroke-opacity=".22" stroke-width="1">
+          <line x1="70" y1="147" x2="540" y2="147"/><line x1="70" y1="185" x2="540" y2="185"/>
+          <line x1="70" y1="222" x2="540" y2="222"/>
+        </g>
+        <!-- top mesh -->
+        <g stroke="#f4eee6" stroke-opacity=".14" stroke-width="1">
+          <line x1="164" y1="110" x2="214" y2="72"/><line x1="258" y1="110" x2="308" y2="72"/>
+          <line x1="352" y1="110" x2="402" y2="72"/><line x1="446" y1="110" x2="496" y2="72"/>
+        </g>
+        <!-- chassis -->
+        <line x1="70" y1="260" x2="540" y2="260" stroke="#f4eee6" stroke-opacity=".85" stroke-width="1.6"/>
+        <line x1="86" y1="276" x2="540" y2="276" stroke="#f4eee6" stroke-opacity=".45" stroke-width="1.2"/>
+        <!-- landing gear -->
+        <line x1="500" y1="276" x2="500" y2="300" stroke="#f4eee6" stroke-opacity=".45" stroke-width="1.2"/>
+        <!-- cab: clean side profile -->
+        <path d="M560 260 L560 146 L620 146 L654 180 L694 190 L700 224 L700 260"
+              stroke="#d9f154" stroke-opacity=".95" stroke-width="1.8" stroke-linejoin="round"/>
+        <!-- windshield -->
+        <path d="M604 158 L622 158 L648 184 L604 184 Z" stroke="#d9f154" stroke-opacity=".8" stroke-width="1.3"/>
+        <!-- door seam + tank -->
+        <line x1="588" y1="158" x2="588" y2="252" stroke="#d9f154" stroke-opacity=".4" stroke-width="1.1"/>
+        <rect x="586" y="266" width="58" height="18" rx="9" stroke="#f4eee6" stroke-opacity=".4" stroke-width="1.1"/>
+        <!-- wheels -->
+        <g stroke="#f4eee6" stroke-opacity=".85" stroke-width="1.6">
+          <circle cx="150" cy="288" r="24"/><circle cx="208" cy="288" r="24"/>
+          <circle cx="610" cy="288" r="24"/><circle cx="668" cy="288" r="24"/>
+        </g>
+        <g stroke="#f4eee6" stroke-opacity=".35" stroke-width="1">
+          <circle cx="150" cy="288" r="10"/><circle cx="208" cy="288" r="10"/>
+          <circle cx="610" cy="288" r="10"/><circle cx="668" cy="288" r="10"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FOAM-FREE GREEN STATEMENT -->
+<section class="foam" id="foamfree">
+  <div class="wrap">
+    <h2 class="rv">Foam-Free Ready.</h2>
+    <p class="sub rv d1">Illinois is moving away from foam. Whatever the timeline turns out to be, the products that replace it are already on our shelves. Switch on your schedule, not in a panic.</p>
+    <div class="law rv d2">
+      <div class="law-row">
+        <strong>SB 0058 is live</strong>
+        <span>Since January 1, 2026, state agencies and their vendors can no longer buy foam foodware.</span>
+      </div>
+      <div class="law-row">
+        <strong>SB 1531 passed the Senate</strong>
+        <span>The retail foam ban is not law yet, but it is moving. Smart kitchens are switching early.</span>
+      </div>
+      <div class="law-row">
+        <strong>We stock the replacements</strong>
+        <span>Fabri-Kal and CKF fiber lines, Inline rPET clear containers. In our warehouse today.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SWAPS SPLIT -->
+<section class="swaps">
+  <div class="swaps-grid wrap">
+    <img class="rv" src="img/packaging.jpg" alt="Molded fiber clamshells, clear recycled PET deli containers, kraft trays and paper bags on a counter" loading="lazy">
+    <div>
+      <h2 class="rv">Every foam item has a replacement on our shelf.</h2>
+      <p class="lead rv d1">Trays, cups, clamshells and containers. For each one we carry a fiber, paper or clear rPET version that does the same job.</p>
+      <div class="swap-list rv d2">
+        <div class="swap-item"><strong>Fabri-Kal</strong><span>fiber and clear foodservice packaging</span></div>
+        <div class="swap-item"><strong>CKF</strong><span>molded fiber trays and containers</span></div>
+        <div class="swap-item"><strong>Inline Plastics</strong><span>clear rPET tamper-evident containers</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS MARQUEE -->
+<section class="brands" id="brands">
+  <h3 class="rv">The brands on our trucks</h3>
+  <div class="marquee" aria-label="Brands carried: Dart, Fabri-Kal, CKF, Anchor, Novolex, Inline">
+    <div class="marquee-track" aria-hidden="false">
+      <span class="mark mk-dart">DART</span>
+      <span class="mark mk-fabrikal">Fabri-Kal</span>
+      <span class="mark mk-ckf">CKF</span>
+      <span class="mark mk-anchor">Anchor</span>
+      <span class="mark mk-novolex">novolex</span>
+      <span class="mark mk-inline">INLINE</span>
+    </div>
+    <div class="marquee-track" aria-hidden="true">
+      <span class="mark mk-dart">DART</span>
+      <span class="mark mk-fabrikal">Fabri-Kal</span>
+      <span class="mark mk-ckf">CKF</span>
+      <span class="mark mk-anchor">Anchor</span>
+      <span class="mark mk-novolex">novolex</span>
+      <span class="mark mk-inline">INLINE</span>
+    </div>
+  </div>
+</section>
+
+<!-- PLANKS / ORDERING -->
+<section class="planks" id="ordering">
+  <div class="wrap">
+    <h2 class="rv">Ordering takes one call.</h2>
+    <p class="intro rv d1">No portal to learn. Here is the whole process.</p>
+    <div class="plank-row">
+      <div class="plank rv"><div class="plank-face">
+        <div class="plank-num">1</div>
+        <div><h4>Send your list</h4><p>Call 630-860-7350 or email it over. Your usual order works as a one-liner: "same as last time."</p></div>
+      </div></div>
+      <div class="plank rv d1"><div class="plank-face">
+        <div class="plank-num">2</div>
+        <div><h4>We pull it in Bensenville</h4><p>Your order is picked from our own warehouse stock at 854 Fairway Drive in Bensenville.</p></div>
+      </div></div>
+      <div class="plank rv d2"><div class="plank-face">
+        <div class="plank-num">3</div>
+        <div><h4>Our truck brings it</h4><p>A United truck and a United driver deliver across the Chicago metro, same day or next on most routes.</p></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCK NIGHT -->
+<section class="dock">
+  <img class="bg" src="img/dock-night.jpg" alt="Trailers backed into a warehouse loading dock at night under amber lights" loading="lazy">
+  <div class="dock-scrim"></div>
+  <div class="dock-inner wrap">
+    <h2 class="rv">Loaded in Bensenville. Delivered across Chicagoland.</h2>
+    <p class="rv d1">One warehouse at 854 Fairway Drive, stocked with what you reorder, with our own trucks parked outside. That is the whole system.</p>
+  </div>
+</section>
+
+<!-- GIANT LOGOTYPE -->
+<section class="logotype">
+  <div class="wrap">
+    <div class="giant rv">UPP</div>
+    <p class="tagline rv d1">United Packaging Products, Inc. Bensenville, Illinois.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid wrap">
+    <div>
+      <h2 class="rv">Talk to a person, not a portal.</h2>
+      <a class="phone-big rv d1" href="tel:6308607350">630-860-7350</a>
+      <div class="contact-meta rv d2">
+        <div><strong>Order desk email</strong><span>orders@unitedpackages.com</span></div>
+        <div><strong>Warehouse</strong><span>854 Fairway Drive, Bensenville, IL 60106</span></div>
+        <div><strong>Hours</strong><span>Monday to Friday, 8:00 AM to 4:30 PM</span></div>
+        <div><strong>Fax</strong><span>630-860-7352</span></div>
+      </div>
+    </div>
+    <div>
+      <form id="orderForm" novalidate>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Rosa Delgado">
+        </div>
+        <div class="field">
+          <label for="f-biz">Business</label>
+          <input id="f-biz" name="business" type="text" autocomplete="organization" placeholder="Delgado's Deli, Elmhurst">
+        </div>
+        <div class="field">
+          <label for="f-msg">What do you need?</label>
+          <textarea id="f-msg" name="message" placeholder="Pricing on 9-inch fiber clamshells and clear rPET deli containers, weekly delivery."></textarea>
+        </div>
+        <button class="btn" type="submit">Email the order desk</button>
+        <p class="form-note">This opens an email to orders@unitedpackages.com. Prefer to talk? The phone is faster.</p>
+        <p class="form-sent" id="formSent">Your email draft is open. Hit send and we will take it from there.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="#top"><b>United</b> Packaging Products, Inc.</a>
+      <p>Supermarket and foodservice packaging plus jan-san supplies for supermarkets, delis, bakeries, restaurants, schools and food processors across the Chicago metro.</p>
+    </div>
+    <p class="disclaimer">Concept demo. This is not the live United Packaging Products website. Built as a design exploration; facts sourced from unitedpackages.com. Current site: unitedpackages.com</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveals (IntersectionObserver; respects prefers-reduced-motion via CSS)
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Contact form -> mailto draft to the published order-desk address
+  const form = document.getElementById('orderForm');
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
+    const biz  = document.getElementById('f-biz').value.trim();
+    const msg  = document.getElementById('f-msg').value.trim();
+    const subject = encodeURIComponent('Order inquiry' + (biz ? ' from ' + biz : ''));
+    const body = encodeURIComponent(
+      (msg || 'Hi, I would like pricing and delivery info.') +
+      '\n\n' + (name || '') + (biz ? '\n' + biz : '')
+    );
+    window.location.href = 'mailto:orders@unitedpackages.com?subject=' + subject + '&body=' + body;
+    document.getElementById('formSent').style.display = 'block';
+  });
+</script>
+</body>
+</html>
